@@ -1,4 +1,14 @@
 This is a Java based prgram designed to help users with tasks. This project is intended to both create a functional app that can help a user with motivation by providing an incentive to productivity. This program uses JavaFx for the GUi and is intended to implement many object oriented design principles like arrays, inheritance, polymorphism, and more.
+
 Pet class:
   - represents pet
-  - evolves as
+  -  evolve up after accumulating enough focus points from completed tasks.
+Methods for pet class:
+  -Constructor: Pet(String name, int numStages) - Initializes a new pet with a name and a specified number of stages.
+  =addFocusPoints(int minutes): Increases the pet's focus points and checks if the pet needs to level up.
+  -getTaskHistory(): Retrieves a list of the pet's recent tasks.
+  -getType(): Returns the type of the pet (overridden in subclasses).
+  -getStage(): Returns the current stage of the pet based on its level.
+  -logTask(String taskDescription): Logs completed tasks into the pet's task history
+
+  Tabby/Siamese Cat
