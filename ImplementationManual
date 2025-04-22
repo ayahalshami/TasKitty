@@ -1,0 +1,4 @@
+This is a Java based prgram designed to help users with tasks. This project is intended to both create a functional app that can help a user with motivation by providing an incentive to productivity. This program uses JavaFx for the GUi and is intended to implement many object oriented design principles like arrays, inheritance, polymorphism, and more.
+Pet class:
+  - represents pet
+  - evolves as
