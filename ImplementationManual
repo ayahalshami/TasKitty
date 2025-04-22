@@ -1,14 +1,89 @@
 This is a Java based prgram designed to help users with tasks. This project is intended to both create a functional app that can help a user with motivation by providing an incentive to productivity. This program uses JavaFx for the GUi and is intended to implement many object oriented design principles like arrays, inheritance, polymorphism, and more.
 
-Pet class:
-  - represents pet
-  -  evolve up after accumulating enough focus points from completed tasks.
-Methods for pet class:
-  -Constructor: Pet(String name, int numStages) - Initializes a new pet with a name and a specified number of stages.
-  =addFocusPoints(int minutes): Increases the pet's focus points and checks if the pet needs to level up.
-  -getTaskHistory(): Retrieves a list of the pet's recent tasks.
-  -getType(): Returns the type of the pet (overridden in subclasses).
-  -getStage(): Returns the current stage of the pet based on its level.
-  -logTask(String taskDescription): Logs completed tasks into the pet's task history
+Core classes:
 
-  Tabby/Siamese Cat
+1. Pet (Abstract Base Class)
+- Serves as the parent class for different pet types
+- Manages level progression, points, and task history
+- Key properties:
+  -name: Pet's name
+  -level: Current level of the pet
+  -focusPoints: Points earned from completing tasks
+  -taskHistory: Object storing completed tasks
+  -numStages: Number of evolution stages for this pet type
+
+
+2. TabbyCat and SiameseCat (Concrete Pet Classes)
+-Extend the Pet class
+-Override methods to provide unique behavior:
+-getType(): Returns the specific cat type ("tabby" or "siamese")
+-getStage(): Determines the visual representation based on level
+
+
+3. TaskHistory
+-Manages a fixed-size list of completed tasks
+-Implements Serializable for persistent storage
+-Maintains the 10 most recent tasks
+
+4. SaveManager
+-Handles data persistence using Java serialization
+-Provides methods to save and load pet data
+-Fallback mechanism to create a default pet if loading fails
+-Implemented by all pet related classes
+
+5. AppGUI
+-Main application class extending JavaFX's Application
+-Manages the user interface and application flow
+-Handles user input and updates the display
+-Uses Timeline and Keyframe from JavaFx to create and update timer
+
+File organization:
+
+  -src (main directory)
+    -images (sub directory) -background.png
+    -siamese (sub directory)
+      - baby.png 
+      - egg.png 
+      - teen.png 
+    -tabby (sub directory) 
+      - baby.png 
+      - egg.png 
+      - teen.png 
+      - adult.png
+    -TasKitty (sub directory)
+        AppGUI.java
+        Pet.java
+        SaveManager.java
+        SiameseCat.java
+        TabbyCat.java
+        TaskHistory.java
+
+Details:
+
+All pets start at level 1 as an egg, and their progress is updated via the formula "focusPoints >= level * 30" in the checkLevelUp() method in the pet class.
+There are different pet types with different stage progressions
+  - Siamese cats have 3 stages
+  - Tabby cats have 4 stages
+Pet data is saved using java's serialization method.
+  - pet data saved to file and accessed again if player choses to continue session
+  - data is saved automatically when:
+    - application is closed (stop method)
+    - when task is completed (focus complete method)
+    - when pet is created (new game button handler)
+Tasks are stired in TaskHistory object
+  - utilizes arrays to show last 10 tasks
+  - older tasks are cleared from memory
+There are multiple ui screens that toggle visibility on/off depending on user
+  - welcome screen (name cat or continue old session)
+  - input screen (for task handling)
+  - timer screen 
+  - completion screen (can restart or view previous tasks)
+  - there is a header that is always visible with your pet and their information displayed underneath
+
+Additional Notes:
+
+This program could be edited furthur to improve user experience. New pet types could be created by extending the pet class and adding more unique behaviors than currently implemented. 
+Level progression can be modified to make leveling up either easier or harder.
+  - simply edit the formula "focusPoints >= level * 30" in the checkLevelUp() method in the pet class. 
+Level Progress could be visualized more clearly in future updates through the GUI
+Task History could also be expanded and could allow for users to log notes after tasks are completed in future updates.
