@@ -87,3 +87,4 @@ Level progression can be modified to make leveling up either easier or harder.
   - simply edit the formula "focusPoints >= level * 30" in the checkLevelUp() method in the pet class. 
 Level Progress could be visualized more clearly in future updates through the GUI
 Task History could also be expanded and could allow for users to log notes after tasks are completed in future updates.
+Link to UML diagram: https://www.mermaidchart.com/app/projects/2ad444d6-67a5-421b-be1b-fbc825615b9f/diagrams/3940a40d-4871-489d-9ac0-5c22fd2db6b8/version/v0.1/edit
