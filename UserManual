@@ -1,1 +1,73 @@
+Installation:
 
+1. Download contingencies (JavaFx, Java and an IDE to run program)
+2. Download files and import them into your IDE of choice
+3. ensure files are in the following format:
+
+  src (main directory)
+      images (sub directory) 
+        -background.png
+        -siamese (sub directory) 
+          - baby.png 
+          - egg.png 
+          - teen.png 
+        -tabby (sub directory) 
+          - baby.png 
+          - egg.png 
+          - teen.png 
+          - adult.png
+      TasKitty (sub directory)
+        AppGUI.java
+        Pet.java
+        SaveManager.java
+        SiameseCat.java
+        TabbyCat.java
+        TaskHistory.java
+4. Launch the app by running the application in your IDE
+
+Flow
+
+Welcome screen
+  - Name your cat
+  - Pick from the two cat types
+    - Tabby: 4 stages, intended for busier periods
+    - Siamese: 3 stages, slightly shorter evolution
+  - Press start new game 
+    - (optionally, you may continue an old session, but there will not be any save data on your first time running and a default tabby pet will be made)
+
+Task screen
+  - Provide description of your task
+  - Set time to work on task
+  - click create task
+
+Timer Screen
+  - Displays countdown timer
+  - 00:00 minute:second format
+  - no other ui on this screen in order to minimize distractions
+
+End screen
+  - When the timer ends, task is marked as complete
+  - History is saved and can be accessed from this screen
+
+Pet Growth
+  - Cat is awared focus points per each minute played
+    - currrently, the requirement for growth is your cats level multiplied by 30 points
+      - ie, the first level takes 30 minutes, the next takes 60, the next is 90, etc
+  - The stages are as follows
+    - Egg (level 1)
+    - Baby (level 2)
+    - Teen (Level 3)
+    - Adult (Level 4, Tabby only)
+  - Header on top of screen keeps track of your cats level as well as their name and the amount of tasks completed
+
+Save progress
+  - Your session is saved automatically 
+    - saves after completing a task
+    - when application is closed
+    - when pet is made
+  - Simply click "continue game" to continue last session
+
+Troubleshooting:
+  - If images won't load, ensure that file system is sorted as shown above
+  - Minutes field will only take whole numbers and not integers
+  - Continue game will only work if you have previously used app, otherwise it creates a default Tabby cat named TaskCat
